@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission to Mars</title>
+    <link 
+    rel="stylesheet" 
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">   
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-warning btn-lg" href="/scrape"
+                role="'button">Scrape New Data</a></p>
+        </div>
+        <!-- MARS NEWS -->
+        <div class="row" id="mars-news">
+            <div class="col-xs-12 col-md-12">
+                <div class="media">
+                    <div class="media-body">
+                        <h2 class="text-center bg-danger">Latest Mars News</h2>
+                        <h4 class="media-heading text-center">{{mars.news_title}}</h4>
+                        <p class="text-center">{{mars.news_paragraph}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FEATURED IMAGE -->
+        <!-- FIRST LEVEL -->
+        <div class="row" id="mars-featured-image">
+            <!-- SECOND LEVEL -->
+            <div class="col-xs-12 col-md-8">
+                <h2 class="bg-warning" >Featured Mars Image</h2>
+                <img 
+                src="{{mars.featured_image }}" 
+                class="img-responsive" 
+                alt="Responsive image"
+                />
+            </div>
+            <!-- MARS FACTS -->
+            <div class="col-xs-12 col-md-4">
+                <div class="table-responsive" id="mars-facts">
+                    <h2 class="bg-success">Mars Facts</h2>
+                    <table border="1" class="table-striped">
+                        <thead>
+                          <tr style="text-align: right;">
+                            <th></th>
+                            <th>Mars</th>
+                            <th>Earth</th>
+                          </tr>
+                          <tr>
+                            <th>description</th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Mars - Earth Comparison</th>
+                            <td>Mars</td>
+                            <td>Earth</td>
+                          </tr>
+                          <tr>
+                            <th>Diameter:</th>
+                            <td>6,779 km</td>
+                            <td>12,742 km</td>
+                          </tr>
+                          <tr>
+                            <th>Mass:</th>
+                            <td>6.39 × 10^23 kg</td>
+                            <td>5.97 × 10^24 kg</td>
+                          </tr>
+                          <tr>
+                            <th>Moons:</th>
+                            <td>2</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <th>Distance from Sun:</th>
+                            <td>227,943,824 km</td>
+                            <td>149,598,262 km</td>
+                          </tr>
+                          <tr>
+                            <th>Length of Year:</th>
+                            <td>687 Earth days</td>
+                            <td>365.24 days</td>
+                          </tr>
+                          <tr>
+                            <th>Temperature:</th>
+                            <td>-87 to -5 °C</td>
+                            <td>-88 to 58°C</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+        <div class="container" >
+            <div class="row" id="hemispheres">
+                <div class="col-md-12">
+                    <h2 class="text-center bg-info">Mars Hemispheres</h2>
+                    {% for hemispheres in mars.hemispheres %}                   
+                        <div class="col-md-3">
+                        <img src = '{{ hemispheres.img_url }}'
+                        class="img-responsive img-thumbnail" 
+                        alt="Responsive image"
+                        style="display:block-center;"
+                        /> 
+                        <strong class="row" > {{ hemispheres.title}} </strong>
+                        </div>                    
+                    {% endfor %} 
+                </div>
+            </div>    
+        </div>
+    </div>
+</body>
+</html>
